@@ -72,7 +72,6 @@ def process_file(filename, skip_header):
             word = word.lower()
             # update the histogram
             hist[word] = hist.get(word, 0) + 1
-
     return hist
 
 
@@ -100,13 +99,14 @@ def top_10_words(hist, num = 10):
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 # nltk.download('averaged_perceptron_tagger')
+import random
 
-def nltk_pos_tags_of_words(hist):
+def nltk_pos_tag_of_random_word(hist):
     """
-    check the POS tags of the words
+    check the POS tag of a random word
     """
-    tagged_words = nltk.pos_tag(hist)
-    print(tagged_words)
+    tagged_word = nltk.pos_tag(hist)
+    print(tagged_word)
         
 
 def main():
@@ -124,8 +124,8 @@ def main():
     
     print('\n')
 
-    print("Classifying Words into Parts of Speech \(POS\) Tags:")
-    nltk_pos_tags_of_words(freq)
+    print("Classifying Random Word's Parts of Speech(POS) Tag:")
+    nltk_pos_tag_of_random_word(random.choice(hist))
 
 
 if __name__ == '__main__':
