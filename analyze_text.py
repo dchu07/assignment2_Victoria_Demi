@@ -99,18 +99,28 @@ def top_10_words(hist, num = 10):
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 # nltk.download('averaged_perceptron_tagger')
-import random
 
-def nltk_pos_tag_of_random_word(hist):
+def webpage_content(page_name):
     """
-    check the POS tag of a random word
+    open the desired summary of any webpage from wikipeda
     """
-    tagged_word = nltk.pos_tag(hist)
-    print(tagged_word)
+    wiki = MediaWiki()
+    page = wiki.page(page_name)
+    summary = page.summary
+
+    return summary
+
+def nltk_sentiment_analyzer(summary):
+    """
+    checking the polarity of the summary portion of the webpage
+    """
+    score = SentimentIntensityAnalyzer().polarity_scores(summary)
+    print(score)
         
 
 def main():
     text = open_webpage("Wikipedia")
+    summary = webpage_content("Wikipedia")
     hist = tokenize_words(text)
     freq = word_freq(hist)
 
@@ -124,8 +134,8 @@ def main():
     
     print('\n')
 
-    print("Classifying Random Word's Parts of Speech(POS) Tag:")
-    nltk_pos_tag_of_random_word(random.choice(hist))
+    print("Sentiment Analysis of the Summary Portion of the Wikipedia Page:")
+    nltk_sentiment_analyzer(summary)
 
 
 if __name__ == '__main__':
