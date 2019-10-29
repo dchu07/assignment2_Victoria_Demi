@@ -5,4 +5,7 @@ from mediawiki import MediaWiki
 wikipedia = MediaWiki()
 wiki = wikipedia.page("Wikipedia")
 print(wiki.title)
-print(wiki.pageid)
+print(wiki.summary)
+print(wiki.content)
+
+
