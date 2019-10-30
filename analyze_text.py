@@ -139,6 +139,7 @@ def main():
     print(content_3)
 
     #python analysis
+    print('\n')
     print("This is the Text Analysis on the Python WikiPage:")
     # print("Python WikiPage Characterized by Word Frequencies:")
     # print_freq_list(freq_1)
@@ -155,6 +156,7 @@ def main():
 
 
     #R analysis
+    print('\n')
     print("This is the Text Analysis on the R WikiPage:")
     # print("R WikiPage Characterized by Word Frequencies:")
     # print_freq_list(freq_2)
@@ -171,6 +173,7 @@ def main():
 
     
     #C analysis
+    print('\n')
     print("This is the Text Analysis on the C WikiPage:")
     # print("C WikiPage Characterized by Word Frequencies:")
     # print_freq_list(freq_3)
